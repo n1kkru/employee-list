@@ -11,9 +11,7 @@ export const EmployeesGrid = ({ employeesList }: EmployeesGridProps) => {
   const newEmployeesList = employeesList.map((emp: TEmployee) => {
     return {
       id: emp.id,
-      firstName: emp.firstName,
-      lastName: emp.lastName,
-      middleName: emp.middleName,
+      name: `${emp.lastName} ${emp.firstName} ${emp.middleName}`,
       birthDate: emp.birthDate,
       department: emp.department,
       post: emp.post,
@@ -25,25 +23,9 @@ export const EmployeesGrid = ({ employeesList }: EmployeesGridProps) => {
   const columns: GridColDef<(typeof newEmployeesList)[number]>[] = [
     { field: "id", headerName: "ID", width: 40 },
     {
-      field: "firstName",
-      headerName: "Имя",
-      width: 110,
-    },
-    {
-      field: "lastName",
-      headerName: "Фамилия",
-      width: 110,
-    },
-    {
-      field: "middleName",
-      headerName: "Отчество",
-      width: 110,
-    },
-    {
-      field: "birthDate",
-      headerName: "Дата",
-      type: "string",
-      width: 110,
+      field: "name",
+      headerName: "ФИО",
+      width: 330,
     },
     {
       field: "department",
@@ -53,16 +35,10 @@ export const EmployeesGrid = ({ employeesList }: EmployeesGridProps) => {
     },
     {
       field: "post",
-      headerName: "Позиция",
+      headerName: "emp.middleName",
       type: "string",
       width: 110,
-    },
-    {
-      field: "salary",
-      headerName: "Зарплата",
-      type: "string",
-      width: 110,
-    },
+    }
   ];
 
   return (
