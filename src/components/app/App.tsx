@@ -1,6 +1,6 @@
 import { EmployeesCard } from "../../pages/employee-card/EmployeeCard";
 import { EmployeesList } from "../../pages/employees-list/EmployeesList";
-import styles from "./App.module.scss"
+import styles from "./App.module.scss";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "../../utils/state";
 import { useEffect } from "react";
@@ -19,7 +19,6 @@ const App = () => {
         <Route path="/employee" element={<EmployeesCard />} />
       </Routes>
     </div>
-
   );
 };
 export default App;

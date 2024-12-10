@@ -4,16 +4,16 @@ const checkResponse = <T>(res: Response): Promise<T> =>
   res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
 
 export type TEmployee = {
-    "id": number,
-    "firstName": string,
-    "lastName": string,
-    "middleName": string,
-    "birthDate": string,
-    "department": string,
-    "post": string,
-    "salary": number,
-    "photo"?: string
-}
+  id: number;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  birthDate: string;
+  department: string;
+  post: string;
+  salary: number;
+  photo?: string;
+};
 
 export const getEmployeesApi = () =>
   fetch(`${BASE_URL}/employee`)

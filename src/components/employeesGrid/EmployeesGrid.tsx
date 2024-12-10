@@ -1,12 +1,12 @@
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import { TEmployee } from "../../utils/api";
 import { useNavigate } from "react-router";
-import styles from './EmployeesGrid.module.scss'
+import styles from "./EmployeesGrid.module.scss";
 interface EmployeesGridProps {
-  employeesList : TEmployee[]
+  employeesList: TEmployee[];
 }
 
-export const EmployeesGrid = ({employeesList} : EmployeesGridProps) => {
+export const EmployeesGrid = ({ employeesList }: EmployeesGridProps) => {
   const navigate = useNavigate();
   const newEmployeesList = employeesList.map((emp: TEmployee) => {
     return {
@@ -18,7 +18,7 @@ export const EmployeesGrid = ({employeesList} : EmployeesGridProps) => {
       department: emp.department,
       post: emp.post,
       salary: emp.salary,
-      photo: emp.photo ? emp.photo : ""
+      photo: emp.photo ? emp.photo : "",
     };
   });
 
@@ -50,7 +50,7 @@ export const EmployeesGrid = ({employeesList} : EmployeesGridProps) => {
       headerName: "Отдел",
       type: "string",
       width: 110,
-    },    
+    },
     {
       field: "post",
       headerName: "Позиция",
@@ -62,9 +62,9 @@ export const EmployeesGrid = ({employeesList} : EmployeesGridProps) => {
       headerName: "Зарплата",
       type: "string",
       width: 110,
-    }
-  ]
-  
+    },
+  ];
+
   return (
     <div className={styles.main}>
       <DataGrid
@@ -73,7 +73,11 @@ export const EmployeesGrid = ({employeesList} : EmployeesGridProps) => {
           maxWidth: "100%",
           borderRadius: "20px",
           border: "none",
-          "--DataGrid-containerBackground": "var(--bg-color)",
+          color: "#000",
+          "--DataGrid-containerBackground": "rgba(195, 146, 72)",
+          "& .MuiGridToolbarQuickFilter-root": { backgroundColor: "#000" },
+          "--DataGrid-rowBorderColor": "#000",
+          "& .MuiDataGrid-columnSeparator": { color: "#000" },
         }}
         rows={newEmployeesList}
         columns={columns}
@@ -95,9 +99,13 @@ export const EmployeesGrid = ({employeesList} : EmployeesGridProps) => {
         slots={{ toolbar: GridToolbar }}
         slotProps={{
           toolbar: {
+            style: {
+              color: "#000",
+            },
             showQuickFilter: true,
           },
         }}
       />
     </div>
-)}
+  );
+};

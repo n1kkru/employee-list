@@ -29,7 +29,7 @@ const slice = createSlice({
   reducers: {
     init: (state) => {
       state.isInit = true;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchGetEmployyes.pending, (state) => {
@@ -44,7 +44,7 @@ const slice = createSlice({
       state.isLoading = false;
       state.error = String(action.error.message);
     });
-  }
+  },
 });
 
 export default slice.reducer;
