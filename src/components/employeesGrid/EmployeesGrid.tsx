@@ -35,9 +35,9 @@ export const EmployeesGrid = ({ employeesList }: EmployeesGridProps) => {
     },
     {
       field: "post",
-      headerName: "emp.middleName",
+      headerName: "Должность",
       type: "string",
-      width: 110,
+      width: 150,
     }
   ];
 
